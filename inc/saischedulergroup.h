@@ -182,6 +182,10 @@ typedef struct _sai_scheduler_group_api_t
     sai_set_scheduler_group_attribute_fn   set_scheduler_group_attribute;
     sai_get_scheduler_group_attribute_fn   get_scheduler_group_attribute;
 
+    sai_bulk_object_create_fn              create_scheduler_groups;
+    sai_bulk_object_remove_fn              remove_scheduler_groups;
+    sai_bulk_object_set_attribute_fn       set_scheduler_groups_attribute;
+    sai_bulk_object_get_attribute_fn       get_scheduler_groups_attribute;
 } sai_scheduler_group_api_t;
 
 /**
