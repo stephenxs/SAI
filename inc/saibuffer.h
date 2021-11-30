@@ -755,6 +755,11 @@ typedef struct _sai_buffer_api_t
     sai_remove_buffer_profile_fn                    remove_buffer_profile;
     sai_set_buffer_profile_attribute_fn             set_buffer_profile_attribute;
     sai_get_buffer_profile_attribute_fn             get_buffer_profile_attribute;
+
+    sai_bulk_object_create_fn                       create_ingress_priority_groups;
+    sai_bulk_object_remove_fn                       remove_ingress_priority_groups;
+    sai_bulk_object_set_attribute_fn                set_ingress_priority_groups_attribute;
+    sai_bulk_object_get_attribute_fn                get_ingress_priority_groups_attribute;
 } sai_buffer_api_t;
 
 /**
