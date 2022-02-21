@@ -1405,6 +1405,11 @@ typedef struct _sai_hostif_api_t
     sai_send_hostif_packet_fn                      send_hostif_packet;
     sai_allocate_hostif_packet_fn                  allocate_hostif_packet;
     sai_free_hostif_packet_fn                      free_hostif_packet;
+
+    sai_bulk_object_create_fn                      create_hostifs;
+    sai_bulk_object_remove_fn                      remove_hostifs;
+    sai_bulk_object_set_attribute_fn               set_hostifs_attribute;
+    sai_bulk_object_get_attribute_fn               get_hostifs_attribute;
 } sai_hostif_api_t;
 
 /**
