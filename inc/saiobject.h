@@ -289,7 +289,7 @@ sai_status_t sai_query_stats_capability(
  * @brief Query statistics capability for statistics bound at object level
  *
  * @param[in] switch_id SAI Switch object id
- * @param[in] object_id SAI object id on which the counter is attached
+ * @param[in] object_key SAI object key on which the counter is attached
  * @param[in] object_type SAI object type
  * @param[inout] stats_capability List of implemented enum values, and the statistics modes (bit mask) supported per value
  *
@@ -297,7 +297,7 @@ sai_status_t sai_query_stats_capability(
  */
 sai_status_t sai_query_object_stats_capability(
         _In_ sai_object_id_t switch_id,
-        _In_ sai_object_id_t object_id,
+        _In_ sai_object_key_t object_key,
         _In_ sai_object_type_t object_type,
         _Inout_ sai_stat_capability_list_t *stats_capability);
 
