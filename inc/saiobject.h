@@ -287,6 +287,7 @@ sai_status_t sai_query_stats_capability(
 
 /**
  * @brief Query statistics capability for statistics bound at object level
+ *    Single call to get per object counter capability
  *
  * @param[in] switch_id SAI Switch object id
  * @param[in] object_key SAI object key on which the counter is attached
@@ -300,6 +301,35 @@ sai_status_t sai_query_object_stats_capability(
         _In_ sai_object_key_t object_key,
         _In_ sai_object_type_t object_type,
         _Inout_ sai_stat_capability_list_t *stats_capability);
+
+/**
+ * @brief Bulk objects query counter capabilities.
+ *    Bulk call to get per object counter capability for multiple objects
+ *
+ * @param[in] switch_id SAI Switch object id
+ * @param[in] object_type Object type
+ * @param[in] object_count Number of objects to get the stats
+ * @param[in] object_key List of object keys
+ * @param[inout] stats_capabilities Embedded list of implemented counters, and the statistics modes (bit mask) supported per counter
+ *    Length of the outside list should be object_count.
+ *    For the I-th element in the outside list,
+ *      It it the list of counters supported by object_key[I]
+ *      The caller is responsible for allocating memory and fill the size allocated into stats_capabilities[I].count.
+ *      If it is less than number of counters supported by the object, SAI_STATUS_BUFFER_OVERFLOW will be set in object_statuses[I].
+ *      Otherwise, the supported counters will be filled in stats_capabilities[I].list. 
+ *      In both cases, the number of supported counters will be filled in stats_capabilities[I].count.
+ *    
+ * @param[inout] object_statuses Array of status for each object. Length of the array should be object_count. Should be looked only if API return is not SAI_STATUS_SUCCESS.
+ *
+ * @return #SAI_STATUS_SUCCESS on success, #SAI_STATUS_BUFFER_OVERFLOW if lists size insufficient, failure status code on error
+ */
+sai_status_t sai_bulk_query_object_stats_capability(
+        _In_ sai_object_id_t switch_id,
+        _In_ sai_object_type_t object_type,
+        _In_ uint32_t object_count,
+        _In_ const sai_object_key_t *object_key,
+        _Inout_ sai_status_t *object_statuses,
+        _Inout_ sai_stat_capability_list_t *stats_capabilities);
 
 /**
  * @brief Bulk objects get statistics.
