@@ -3284,7 +3284,7 @@ typedef enum _sai_acl_entry_attr_t
      *
      * @type sai_acl_action_data_t sai_object_id_t
      * @flags CREATE_AND_SET
-     * @objects SAI_OBJECT_TYPE_ACL_TABLE_CHAIN_GROUP
+     * @objects SAI_OBJECT_TYPE_ACL_TABLE
      * @default disabled
      */
     SAI_ACL_ENTRY_ATTR_ACTION_CHAIN_REDIRECT = SAI_ACL_ENTRY_ATTR_ACTION_START + 0x38,
